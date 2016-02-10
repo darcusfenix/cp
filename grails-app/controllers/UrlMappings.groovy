@@ -1,4 +1,4 @@
-package capitalbus
+
 
 class UrlMappings {
 

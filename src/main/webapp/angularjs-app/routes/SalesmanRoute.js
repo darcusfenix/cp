@@ -2,7 +2,10 @@
  * Created by darcusfenix on 1/26/16.
  */
 
-angular.module('CapitalBusApp').config(['$stateProvider', function ($stateProvider) {
+
+angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
+//    $urlRouterProvider.otherwise("/dashboard.html");
 
     $stateProvider
         .state('vendedorGenerar', {
@@ -16,26 +19,8 @@ angular.module('CapitalBusApp').config(['$stateProvider', function ($stateProvid
             url: "/buscar-vendedor",
             templateUrl: "angularjs-app/views/vendedor/search.gsp",
             data: {pageTitle: 'Búsqueda de Vendedores', pageSubTitle: ''},
-            controller: "VendedorBuscarController",
+            controller: "SalesmanSearchController"
 
-        })
-
-        .state('vendedor', {
-            url: "/vendedor",
-            templateUrl: "angularjs-app/views/vendedor/index.gsp",
-            data: {pageTitle: 'Vendedores', pageSubTitle: ''},
-            controller: "VendedorShowAllController",
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'CapitalBusApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            BASE_URL + 'angularjs-app/controllers/vendedor/VendedorShowAllController.js',
-                        ]
-                    });
-                }]
-            }
         })
 
         .state('vendedorReporte', {

@@ -105,13 +105,10 @@ angular.module('CapitalBusApp').controller('IndexController', function($rootScop
     });
 });
 
-/* Init global settings and run the app */
-CapitalBusApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
-    $rootScope.$state = $state; // state to be accessed from view
-    $rootScope.$settings = settings; // state to be accessed from view
-}]);
 
 angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    // Redirect any unmatched url
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider.state('index', {
         url: "/",
@@ -129,18 +126,25 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
                         BASE_URL + 'angularjs-app/resources/DuracionResource.js',
                         BASE_URL + 'angularjs-app/resources/PersonaResource.js',
                         BASE_URL + 'angularjs-app/resources/PulseraResource.js',
-                        BASE_URL + 'angularjs-app/resources/VendedorResource.js',
+                        BASE_URL + 'angularjs-app/resources/SalesmanResource.js',
 
-                        BASE_URL + 'angularjs-app/controllers/vendedor/VendedorBuscarController.js',
+                        BASE_URL + 'angularjs-app/controllers/vendedor/SalesmanSearchController.js',
                         BASE_URL + 'angularjs-app/controllers/vendedor/VendedorGenerarAsignarController.js',
                         BASE_URL + 'angularjs-app/controllers/vendedor/VendedorReporteController.js',
 
                         BASE_URL + 'angularjs-app/routes/PulseraRoute.js',
-                        BASE_URL + 'angularjs-app/routes/VendedorRoute.js'
+                        BASE_URL + 'angularjs-app/routes/SalesmanRoute.js'
                     ]
                 });
             }]
         }
     });
 
+}]);
+
+
+/* Init global settings and run the app */
+CapitalBusApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+    $rootScope.$state = $state; // state to be accessed from view
+    $rootScope.$settings = settings; // state to be accessed from view
 }]);
