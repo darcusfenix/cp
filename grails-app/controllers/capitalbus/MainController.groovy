@@ -1,11 +1,11 @@
 package capitalbus
 
 import grails.converters.JSON
-import mx.capitalbus.circuit.Bus
+import mx.capitalbus.bracelet.Bracelet
 
 class MainController {
 
     def index() {
-        render ( Bus.list() as JSON)
+        render ( ["aaa" : Bracelet.findById(1)] as JSON)
     }
 }

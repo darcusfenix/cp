@@ -6,21 +6,24 @@ import mx.capitalbus.user.Salesman
 class Bracelet {
     String code
     Date activationDate
+    Date deliveryDate
+    Date creationDate
+
     Salesman salesman
     BraceletState braceletState
-    Date deliveryDate
     CostBracelet costBracelet
     Bus currentBus
 
     static constraints = {
+        currentBus nullable: true
+        salesman nullable: true
+        deliveryDate nullable: true
+        activationDate nullable: true
     }
 
     static mapping = {
         id generator: 'identity'
         code sqlType: "char", length: 10, unique: true
-        currentBus nullable: true
-        salesman nullable: true
-        deliveryDate nullable: true
-        currentBus nullable: true
+
     }
 }

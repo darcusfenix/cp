@@ -54,10 +54,12 @@ class BootStrap {
             it.clear()
         }
 */
-        PersonDuration.create(kp, dd)
+        def pdr = PersonDuration.create(kp, dd)
         PersonDuration.create(kp, dd2)
         PersonDuration.create(kp2, dd)
         PersonDuration.create(kp2, dd2)
+
+        log.error(pdr)
 
         BraceletState bs = new BraceletState()
         bs.name = "generado"
@@ -94,7 +96,6 @@ class BootStrap {
         bs6.description = "..."
         bs6.save()
 
-
         BraceletState bs7 = new BraceletState()
         bs7.name = "caducado"
         bs7.description = "..."
@@ -112,6 +113,20 @@ class BootStrap {
         b.lastUpdatedLocation = new Date()
         b.save()
 
+        CostBracelet cb = new CostBracelet()
+        cb.cost = 170.50
+        cb.personDuration = pdr
+        cb.circuit = c
+        cb.save()
+
+        Bracelet bracelet = new Bracelet()
+        bracelet.braceletState = bs
+        bracelet.code = "0123456789"
+        bracelet.creationDate = new Date()
+        bracelet.costBracelet = cb
+        bracelet.validate()
+        log.error(bracelet.errors)
+        bracelet.save()
     }
     def destroy = {
     }
