@@ -45,6 +45,7 @@ class BootStrap {
         sm.birthdate = new Date()
         sm.firstName = "JUAN"
         sm.lastName = "CRISÓSTOMO"
+        sm.telephone = "5530271655"
         sm.save()
 
         UserRole.create sm,salesManRole
@@ -125,7 +126,6 @@ class BootStrap {
         bracelet.creationDate = new Date()
         bracelet.costBracelet = cb
         bracelet.validate()
-        log.error(bracelet.errors)
         bracelet.save()
     }
     def destroy = {

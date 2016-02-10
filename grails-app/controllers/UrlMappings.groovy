@@ -13,7 +13,6 @@ class UrlMappings {
         "500"(view:'/error')
         "404"(view:'/notFound')
 
-        //REST
-        "/salesman/"(controller: 'salesman', action: 'search')
+
     }
 }

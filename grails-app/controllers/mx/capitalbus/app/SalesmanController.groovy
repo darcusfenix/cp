@@ -1,24 +1,25 @@
 package mx.capitalbus.app
 
 import grails.converters.JSON
+import mx.capitalbus.app.repository.SalesmanRepository
 import mx.capitalbus.user.Salesman
+
 
 class SalesmanController {
 
-    def search(String q) {
-        def search = q ?: params.list('q');
-        def v = Salesman.createCriteria()
-        def results = v.list {
-            and {
-                eq("enabled", true)
-            }
-            or {
-                like("username", "%" + search + "%")
-                like("email", "%" + search + "%")
-                like("firstName", "%" + search + "%")
-                like("lastName", "%" + search + "%")
-            }
-            maxResults(25)
+    SalesmanRepository salesmanRepository
+
+    def index(String q) {
+        render(salesmanRepository.getBySearch(q ?: params.list('q')) as JSON)
+    }
+    def get(Integer id) {
+
+        def v = Salesman.findById(id ?: params.int('id'))
+        if (v != null) {
+            render(v as JSON);
+        } else {
+            response.status = 404
+            render([message: message(code: "vendedor.notFound")] as JSON)
         }
         render(results as JSON)
     }

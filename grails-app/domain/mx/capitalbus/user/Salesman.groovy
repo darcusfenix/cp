@@ -7,6 +7,7 @@ class Salesman extends User{
     String firstName
     String lastName
     Date birthdate
+    String telephone
 
 
     static constraints = {
