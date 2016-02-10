@@ -34,3 +34,5 @@
 
 #
 /*.class
+.gradle/2.9/*
+classes/*
