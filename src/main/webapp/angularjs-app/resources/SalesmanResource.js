@@ -2,43 +2,38 @@
  * Created by darcusfenix on 1/26/16.
  */
 
-angular.module('CapitalBusApp').factory('Vendedor', function ($resource) {
+angular.module('CapitalBusApp').factory('Salesman', function ($resource) {
 
-    return $resource('vendedor/:id', {id: '@id'}, {
+    return $resource('salesman/:id', {id: '@id'}, {
         get: {
             method: 'GET',
-            url: 'vendedor/get/:id'
+            url: 'salesman/:id'
         },
         update: {
             method: 'PUT',
-            url: 'vendedor/update/'
+            url: 'salesman/'
         },
         delete: {
             method: 'DELETE',
-            url: 'vendedor/delete/:id'
+            url: 'salesman/:id'
         },
         create: {
             method: 'GET',
-            url: 'vendedor/create/'
+            url: 'salesman/'
         },
         save: {
             method: 'POST',
-            url: 'vendedor/save'
-        },
-        getByEmail: {
-            method: 'GET',
-            isArray: true,
-            url: 'vendedor/email/'
+            url: 'salesman'
         },
         getTotalPulseras: {
             method: 'GET',
             isArray: true,
-            url: 'vendedor/:id/pulseras/total'
+            url: 'salesman/:id/pulseras/total'
         },
         getAsignaciones: {
             method: 'GET',
             isArray: true,
-            url: 'vendedor/:id/pulseras/asignaciones'
+            url: 'salesman/:id/pulseras/asignaciones'
         }
     });
 });

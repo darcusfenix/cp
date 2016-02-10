@@ -132,7 +132,7 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
                         BASE_URL + 'angularjs-app/controllers/vendedor/VendedorGenerarAsignarController.js',
                         BASE_URL + 'angularjs-app/controllers/vendedor/VendedorReporteController.js',
 
-                        BASE_URL + 'angularjs-app/routes/PulseraRoute.js',
+                        BASE_URL + 'angularjs-app/routes/BraceleteRoute.js',
                         BASE_URL + 'angularjs-app/routes/SalesmanRoute.js'
                     ]
                 });

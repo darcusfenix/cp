@@ -63,11 +63,11 @@
                             <td class="fit">
                                 <img class="user-pic rounded" src="https://cdn3.iconfinder.com/data/icons/line/36/person-24.png"></td>
                             <td>
-                                <a href="javascript:;" class="primary-link">{{vendedor.nombres}}</a>
+                                <a href="javascript:;" class="primary-link">{{vendedor.firstName}}</a>
                             </td>
-                            <td>{{vendedor.apellidos}}</td>
-                            <td>{{vendedor.username}}</td>
-                            <td>{{vendedor.telefono}}</td>
+                            <td>{{vendedor.lastName}}</td>
+                            <td>{{vendedor.email}}</td>
+                            <td>{{vendedor.telephone}}</td>
                             <td class="text-center">
                                 <a href="#/vendedor/{{vendedor.id}}/historial" class="btn btn-success">Ver historial</a>
                             </td>

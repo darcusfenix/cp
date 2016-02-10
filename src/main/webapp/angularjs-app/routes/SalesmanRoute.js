@@ -5,7 +5,7 @@
 
 angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-//    $urlRouterProvider.otherwise("/dashboard.html");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
         .state('vendedorGenerar', {
@@ -40,5 +40,4 @@ angular.module('CapitalBusApp').config(['$stateProvider', '$urlRouterProvider', 
                 }]
             }
         })
-
 }]);
